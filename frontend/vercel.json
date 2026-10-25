@@ -1,6 +1,6 @@
-   {
-     "rewrites": [
-       { "source": "/api/:path*", "destination": "https://ifs24044-pabwe2026-proyek1.onrender.com/api/:path*" },
-       { "source": "/(.*)", "destination": "/index.html" }
-     ]
-   }
+{
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "https://ifs24044-pabwe2026-proyek1-be.vercel.app/api/:path*" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
