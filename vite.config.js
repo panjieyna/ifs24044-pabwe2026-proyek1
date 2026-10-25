@@ -25,6 +25,7 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: ['./src/setupTests.js'],
+    globalSetup: ['./scripts/clean-legacy-workspace.js'],
     include: ['src/**/*.test.js'],
     coverage: {
       provider: 'v8',
