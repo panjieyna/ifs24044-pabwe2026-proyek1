@@ -49,4 +49,4 @@ cd frontend && npm test     # vitest + coverage (ambang 90%)
 ```
 
 ## CI/CD
-`Jenkinsfile` (di root repo) dan `frontend/sonar-project.properties` dipakai untuk pipeline (install, test, build, scan Trivy, SonarQube, deploy). `frontend/vercel.json` meneruskan `/api` ke domain backend dan menangani rute Vue Router.
+`Jenkinsfile` dan `sonar-project.properties` (keduanya di root repo) dipakai untuk pipeline (install, test, build, scan Trivy, SonarQube, deploy). `frontend/vercel.json` meneruskan `/api` ke domain backend dan menangani rute Vue Router.

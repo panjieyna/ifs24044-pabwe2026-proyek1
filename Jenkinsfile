@@ -160,18 +160,17 @@ pipeline {
             }
 
             steps {
-                dir('frontend') {
-                    withSonarQubeEnv('SonarQube') {
-                        sh '''
-                            set -e
+                // Dari root repo: sonar-project.properties ada di root workspace
+                withSonarQubeEnv('SonarQube') {
+                    sh '''
+                        set -e
 
-                            echo "=== SonarQube Analysis ==="
+                        echo "=== SonarQube Analysis ==="
 
-                            sonar-scanner
+                        sonar-scanner
 
-                            echo "=== SonarQube Analysis Completed ==="
-                        '''
-                    }
+                        echo "=== SonarQube Analysis Completed ==="
+                    '''
                 }
             }
         }
