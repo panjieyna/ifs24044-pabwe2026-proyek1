@@ -1,2 +1,9 @@
 node_modules
 .DS_Store
+dist
+coverage
+.env
+.trivy-cache
+.scannerwork
+trivy-results.sarif
+latest-app.zip

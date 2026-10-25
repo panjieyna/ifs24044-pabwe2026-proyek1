@@ -34,6 +34,6 @@ Badan buku: `{isbn, title, author, publisher, year, category, shelf, stock, cove
 Aturan: ISBN 10 atau 13 digit dan unik (tanda hubung diabaikan), tahun terbit 1900 hingga tahun depan, stok bilangan bulat 0 sampai 100000, `cover_url` opsional (http/https), `category` salah satu dari Informatika, Elektro, Manajemen Rekayasa, Bioproses, Umum.
 
 ## Deploy
-Backend ini memakai file SQLite, jadi idealnya butuh hosting dengan disk permanen (VPS, Railway, Render dengan disk). Arahkan rewrite `/api` di `frontend/vercel.json` ke domain backend, dan atur `CORS_ORIGIN` bila frontend diakses dari domain lain.
+Backend ini memakai file SQLite, jadi idealnya butuh hosting dengan disk permanen (VPS, Railway, Render dengan disk). Arahkan rewrite `/api` di `vercel.json` (root repo) ke domain backend, dan atur `CORS_ORIGIN` bila frontend diakses dari domain lain.
 
 **Vercel:** buat project dengan Root Directory `backend` (framework preset: Other). `api/index.js` adalah entry serverless-nya dan `vercel.json` mengarahkan semua path ke sana. Isi `JWT_SECRET`, `STAFF_EMAIL`, `STAFF_PASSWORD` (dan opsional `STAFF_NAME`, `CORS_ORIGIN`) di Environment Variables, lalu **Redeploy** setiap kali env diubah. Database disimpan di `/tmp` yang tidak permanen: akun staf dan buku contoh dibuat ulang otomatis setiap cold start, tetapi buku yang ditambah/diubah lewat aplikasi bisa hilang.

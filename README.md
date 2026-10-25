@@ -1,6 +1,6 @@
 # DelLib Staff — Sistem Manajemen & Inventaris Koleksi Buku Perpustakaan IT Del
 
-Proyek 1 PABWE 2026 (ifs24044). Frontend Vue 3 + Vite + Pinia + Vue Router + Tailwind (folder `frontend/`) dan backend Node.js + SQLite (folder `backend/`).
+Proyek 1 PABWE 2026 (ifs24044). Frontend Vue 3 + Vite + Pinia + Vue Router + Tailwind (di root repo) dan backend Node.js + SQLite (folder `backend/`).
 
 ## A. Latar Belakang & Masalah
 Pengelolaan koleksi buku fisik di Perpustakaan Institut Teknologi Del memerlukan pencatatan inventaris yang akurat dan rapi. Staf perpustakaan menghadapi kendala jika pendataan buku baru, pembaruan jumlah eksemplar/stok buku yang rusak atau hilang, serta penataan lokasi rak dilakukan secara manual atau tidak terpusat. Oleh karena itu, dibutuhkan sebuah portal khusus staf perpustakaan untuk mengontrol siklus data buku secara real-time.
@@ -35,8 +35,7 @@ cp .env.example .env        # isi JWT_SECRET, STAFF_EMAIL, STAFF_PASSWORD
 npm run seed                # opsional: 10 buku contoh
 npm run dev
 
-# 2) Frontend, http://localhost:3000 (meneruskan /api ke backend)
-cd frontend
+# 2) Frontend (dari root repo), http://localhost:3000 (meneruskan /api ke backend)
 npm install                 # atau: bun install
 npm run dev
 ```
@@ -45,8 +44,8 @@ Login contoh bawaan `.env.example`: `staf@dellib.local` / `staf123` (ganti sebel
 ## Pengujian
 ```bash
 cd backend  && npm test     # node:test
-cd frontend && npm test     # vitest + coverage (ambang 90%)
+npm test                    # frontend (dari root): vitest + coverage (ambang 90%)
 ```
 
 ## CI/CD
-`Jenkinsfile` dan `sonar-project.properties` (keduanya di root repo) dipakai untuk pipeline (install, test, build, scan Trivy, SonarQube, deploy). `frontend/vercel.json` meneruskan `/api` ke domain backend dan menangani rute Vue Router.
+`Jenkinsfile` dan `sonar-project.properties` adalah template resmi dan dicek SHA256 oleh grading, jadi jangan diubah sedikit pun (termasuk menambah baris kosong di akhir file). `vercel.json` meneruskan `/api` ke domain backend dan menangani rute Vue Router.
