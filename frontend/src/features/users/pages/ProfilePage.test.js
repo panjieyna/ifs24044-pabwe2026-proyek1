@@ -32,7 +32,8 @@ describe('ProfilePage', () => {
   it('saves the profile and reports the result', async () => {
     api.updateMe.mockResolvedValueOnce({ success: true, message: 'Tersimpan' }).mockResolvedValueOnce({ success: false, message: 'Email dipakai' })
     renderWithProviders(ProfilePage)
-    await fireEvent.update(await screen.findByLabelText('Nama'), 'Budi S')
+    await screen.findByDisplayValue('budi@dellib.local') // tunggu profil selesai dimuat ke form
+    await fireEvent.update(screen.getByLabelText('Nama'), 'Budi S')
     await fireEvent.click(screen.getByRole('button', { name: 'Simpan profil' }))
     await waitFor(() => expect(showSuccessDialog).toHaveBeenCalledWith('Tersimpan'))
     expect(api.updateMe).toHaveBeenCalledWith({ name: 'Budi S', email: 'budi@dellib.local' })
